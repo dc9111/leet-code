@@ -16,3 +16,5 @@ class Solution {
         return islands * 4 - neighbours * 2;
     }
 }
+
+//Time Complexity o(n^2)
