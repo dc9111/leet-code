@@ -1,0 +1,39 @@
+class Solution {
+    public static int[][] flipAndInvertImage(int[][] image) {
+        int mid = image[0].length/2;
+        int end = image[0].length-1;
+
+        for (int i=0; i<image.length; i++) {
+
+            if (!(image[0].length %2 == 0)) {
+                if (image[i][mid] == 0) {
+                    image[i][mid] = 1;
+                } else {
+                    image[i][mid] = 0;
+                }
+            }
+
+            for (int j=0; j<image[0].length/2; j++) {
+                if (image[i][j] != image[i][end-j]) {
+                    int temp = image[i][j];
+                    image[i][j] = image[i][end-j];
+                    image[i][end-j] = temp;
+                }
+                if (image[i][j] == 0) {
+                    image[i][j] = 1;
+                } else {
+                    image[i][j] = 0;
+                }
+
+                if (image[i][end-j] == 0) {
+                    image[i][end-j] = 1;
+                } else {
+                    image[i][end-j] = 0;
+                }
+
+            }
+        }
+
+        return image;
+        }
+    }
