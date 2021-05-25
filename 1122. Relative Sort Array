@@ -1,0 +1,34 @@
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        
+        int pos = 0;
+        int temp = 0;
+        
+        for (int j=0; j<arr2.length; j++) {            
+            for (int i=0; i<arr1.length; i++) {
+                if (arr1[i] == arr2[j]) {
+                    temp = arr1[pos];
+                    arr1[pos] = arr1[i];
+                    arr1[i] = temp;
+                    pos++;
+                }
+            }
+        }
+                
+        boolean sorted = false;
+        while(!sorted) {
+        sorted = true;
+        for (int i = pos; i < arr1.length - 1; i++) {
+            if (arr1[i] > arr1[i+1]) {
+                temp = arr1[i];
+                arr1[i] = arr1[i+1];
+                arr1[i+1] = temp;
+                sorted = false;
+            }
+        }
+    }
+        
+    
+        return arr1;
+    }
+}
